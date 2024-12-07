@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام إدارة المستخدمين</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>نظام إدارة المستخدمين</h1>
+        
+        <!-- نموذج إضافة مستخدم -->
+        <div id="addUserSection">
+            <h2>إضافة مستخدم جديد</h2>
+            <form id="addUserForm" onsubmit="return handleAddUser(event)">
+                <div class="form-group">
+                    <label for="name">الاسم:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">رقم الهاتف:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">كلمة المرور:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn-primary">إضافة مستخدم</button>
+            </form>
+        </div>
+
+        <!-- قائمة المستخدمين -->
+        <div id="userListSection">
+            <h2>قائمة المستخدمين</h2>
+            <div class="table-container">
+                <table id="userTable">
+                    <thead>
+                        <tr>
+                            <th>الاسم</th>
+                            <th>البريد الإلكتروني</th>
+                            <th>رقم الهاتف</th>
+                            <th>الإجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- نموذج تعديل المستخدم -->
+        <div id="editUserSection" class="hidden">
+            <h2>تعديل بيانات المستخدم</h2>
+            <form id="editUserForm" onsubmit="return handleEditUser(event)">
+                <input type="hidden" id="editUserId">
+                <div class="form-group">
+                    <label for="editName">الاسم:</label>
+                    <input type="text" id="editName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="editEmail">البريد الإلكتروني:</label>
+                    <input type="email" id="editEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="editPhone">رقم الهاتف:</label>
+                    <input type="tel" id="editPhone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="editPassword">كلمة المرور: (اتركها فارغة للاحتفاظ بكلمة المرور الحالية)</label>
+                    <input type="password" id="editPassword" name="password">
+                </div>
+                <button type="submit" class="btn-primary">حفظ التعديلات</button>
+                <button type="button" class="btn-secondary" onclick="cancelEdit()">إلغاء</button>
+            </form>
+        </div>
+    </div>
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
